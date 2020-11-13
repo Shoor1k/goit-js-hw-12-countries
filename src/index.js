@@ -20,7 +20,7 @@ function onSerch(e) {
      e.preventDefault()
      const serchCountry = e.target.value
     API.fetchCountry(serchCountry)
-        .then(appendCountryMarkup).catch(error => messageError(`Sorry, nothing was found for your request`)).finally(serchCountry.reset())
+        .then(appendCountryMarkup).catch(error => messageError(`Sorry, nothing was found for your request`))
   
 }
 
