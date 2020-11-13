@@ -28,8 +28,6 @@ function appendCountryMarkup(country) {
     const markup = MarkupCountry(country[0]);
     const countryName = country.map(country => country.name)
     const markupListNameCountru = MarkupListNameCountry(countryName)
-    console.log(markupListNameCountru);
-        console.log(countryName);
     if (country.length === 1) {
         refs.containerCountry.innerHTML = markup;
     }
