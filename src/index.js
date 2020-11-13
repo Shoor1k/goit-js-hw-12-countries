@@ -20,7 +20,7 @@ function onSerch(e) {
      e.preventDefault()
      const serchCountry = e.target.value
     API.fetchCountry(serchCountry)
-        .then(appendCountryMarkup)
+        .then(appendCountryMarkup).catch(error => messageError(`Sorry, nothing was found for your request`)).finally(serchCountry.reset())
   
 }
 
@@ -35,19 +35,19 @@ function appendCountryMarkup(country) {
         refs.containerCountry.innerHTML = markupListNameCountru
     }
     else if (country.length > 10) {
-        message()
-        refs.containerCountry.innerHTML = '';
+        messageError("Too many matches found. Please enter a more special query");
     }
   
 }
      
-function message() {
+function messageError(message) {
+    refs.containerCountry.innerHTML = ''
          error({
-            text: "Too many matches found. Please enter a more special query",
-            delay: 1000,
+            text: message,
+            delay: 2000,
         });
     }
-   
+
 
 
 
